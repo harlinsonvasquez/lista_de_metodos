@@ -101,8 +101,107 @@ for(let i=1; i<4; i++){
 
 for(let i=0; i<=10; i++){
     if(i%2==0){
-        continue;
+        continue;//con este continue lo que hacemos es saltar la iteracion si el numeor es par
     }
     console.log(i)
 }
 
+let colores=["red","green","blue"];
+for(let color of colores){//con esta sintaxis creamos una variable que recorre cada elemento del array colores
+    console.log(color);
+}
+
+let persona={name:"harry", age:"30", job:"developer"}
+
+for(let key in persona){//en esta sintaxis se usa la palabra in para acceder a los elementos de l objeto
+    console.log(key +":"+persona[key])
+}
+
+//ciclo while
+
+let limite=10;
+let conta=1;
+
+while (conta <limite){
+    console.log(conta);
+    conta++;
+}
+
+
+// sesion nunmero 5
+
+
+//estructuras de control parte 2
+
+/** forEach es un método disponible para arrays en JavaScript que permite
+ejecutar una función proporcionada una vez por cada elemento del array. Es
+una forma más moderna y legible de iterar sobre elementos en comparación
+con el bucle for tradicional. La función que se pasa como argumento se ejecuta
+para cada elemento del array.*/
+
+
+let numeros=[1,2,3,4,5];
+numeros.forEach(function(numero){//la palabra numero es cualquier palbra
+    console.log(numero)
+})
+
+let cuadrados=[];
+
+numeros.forEach(function(numero){
+    cuadrados.push(numero*numero)//con el metodo push agregamos al array vacio de cuadrados y ejecutamos la accion sobre los elementos del array de numeros
+});
+console.log(cuadrados)
+
+//tambien podemos pasarle varios parametros a la funcion como el index y el elemento del index
+
+let frutas=["manzana","banano","sandia","coco"]
+
+frutas.forEach(function(fruta,index){
+    console.log(`el index de cada fruta es:${index}:${fruta}`)
+})
+
+//uso de forEach EN OBJETOS
+
+Object.keys(persona).forEach(function(key){// Usamos la palabra object para referirnos al objeto que estamos iterando
+    console.log(`${key}:${persona[key]}`)
+})
+
+//uso de forEach con un array de onjetos
+
+let estudiantes=[
+    {name:'harry', grade:30},
+    {name:'kelly', grade:33},
+    {name:'maxi', grade:1}];
+
+estudiantes.forEach(function(estudiante){
+    console.log(`${estudiante.name} : ${estudiante.grade}`)
+})
+
+/**Map
+map es un método que se encuentra disponible en los arrays de
+JavaScript. Su función principal es iterar sobre cada elemento de un
+array y aplicar una función proporcionada a cada elemento, creando
+así un nuevo array con los resultados de aplicar la función a cada
+elemento original. */
+
+const duplicados=numeros.map(function(numero){
+    return numero*2;
+})
+console.log(duplicados)
+
+let palabra=["hola","mundo"]
+let mayus=palabra.map(function(mayus){
+    return mayus.toUpperCase();//lo uso para convertir todo a mayusculas
+})
+console.log(mayus)
+
+//uso de de map con filter
+//filter lo usamos para filtar y verificar una condicion, luego crea un nuevo array y lo agrega y luego uso el .map para iterar ese nuevo array 
+let CuadradosDePares=numeros.filter(numero=>numero%2 ===0).map(numero=>numero*numero);
+console.log(CuadradosDePares)
+
+
+//creamos unnuevo array llamado sumanumero y a numeros lo iteramos con .map y realizamos la operacion, luego con reduce sumamos el resultado de la operacion 
+// en este caso seria 1+4=5 luego 5+9 y asi hasta llegar al resultado final
+let sumaNumeros=numeros.map(numero=>numero*numero).reduce((acumulador,valorActual)=>acumulador+valorActual,0);
+console.log(sumaNumeros)
