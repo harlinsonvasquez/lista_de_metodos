@@ -205,3 +205,5 @@ console.log(CuadradosDePares)
 // en este caso seria 1+4=5 luego 5+9 y asi hasta llegar al resultado final
 let sumaNumeros=numeros.map(numero=>numero*numero).reduce((acumulador,valorActual)=>acumulador+valorActual,0);
 console.log(sumaNumeros)
+
+
